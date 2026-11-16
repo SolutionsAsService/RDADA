@@ -22,6 +22,12 @@ def check(c, i, errs):
     if c["review"].get("status") != "unreviewed": errs.append(f"{p}: review.status must be 'unreviewed'")
     if c.get("doi") and not re.fullmatch(r"10\.\d{4,9}/\S+", c["doi"]): errs.append(f"{p}: malformed doi")
     if "verified" not in c: errs.append(f"{p}: no verifier marker")
+    st = c.get("strand")
+    if st is not None:
+        for k in ("from", "to", "carried", "medium"):
+            if not st.get(k): errs.append(f"{p}: strand missing {k}")
+        if st.get("carried") not in {"language","writing","religion","idea","technology","crop_or_animal","people","institution","custom"}: errs.append(f"{p}: bad strand.carried")
+        if st.get("directness", "inferred") not in {"documented", "inferred", "debated"}: errs.append(f"{p}: bad strand.directness")
 
 def main(path):
     data = json.load(open(path)); cands = data["candidates"] if isinstance(data, dict) else data

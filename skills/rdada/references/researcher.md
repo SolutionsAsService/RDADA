@@ -11,6 +11,14 @@ You have one brief. Find sources that bear on it, in both directions, and report
 4. Do a deliberate sceptical pass: search for critiques, reanalyses, failed replications, alternative explanations, and official or museum/survey records. Do an alternative-claim pass too (what proponents of a different reading cite). A brief with support only is one-sided; say so in the notes.
 5. Stop at about 15 tool calls, or when new queries return nothing new.
 
+## Thread briefs
+
+For `kind: "thread"` briefs the question is "what passed from A to B, by what route, and who disputes it". For every strand: (1) a source that states the transfer, with its date; (2) the opposing or sceptical scholarship (independent development, overstated influence, chronology problems); (3) the `strand` object in the candidate. Report the strongest sceptical source as its own candidate with stance `contradicts` or `fails_to_support`. Parallels without a documented route are `inferred` or `debated`, never `documented`.
+
+## Hosts that open in this sandbox (try these first)
+
+Wikipedia (`?action=raw` for text), Wiktionary, archive.org (`/stream/<id>/<id>_djvu.txt`), Cambridge open-access PDFs, ORA (Oxford), White Rose eprints, PMC (some articles; reCAPTCHA means not opened), UChicago Press pages, Perseus/OA editions found via search. Prefer an open-access copy found through WebSearch over a paywalled publisher page. Do not retry a host that returned 403 or a CAPTCHA more than once.
+
 ## Source discipline
 
 - Prefer primary: excavation or survey reports, dating papers, archives, original texts, datasets. Then reviews and official records. Then reasoned secondary and alternative authors. Popular outlets only as `context`, never as support for a dating or an identification.
