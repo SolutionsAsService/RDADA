@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Validate an RDADA candidates file (stdlib only). Exit 1 on any problem.
 Checks the rules that keep the output honest: https URL, quote length, reliability unassessed, review unreviewed,
-no duplicate URL, verified marker present, and (per brief) a one-sided warning when only one stance family is present."""
+no duplicate (URL, quote) pair, verified marker present, and (per brief) a one-sided warning when only one stance family is present."""
 import json, re, sys
 from collections import defaultdict
 KINDS = {"primary", "secondary", "alternative", "official", "skeptical"}
@@ -28,8 +28,8 @@ def main(path):
     errs, seen, fam = [], set(), defaultdict(set)
     for i, c in enumerate(cands):
         check(c, i, errs)
-        u = str(c.get("url", "")).rstrip("/").lower()
-        if u in seen: errs.append(f"candidate {i}: duplicate url")
+        u = (str(c.get("url", "")).rstrip("/").lower(), " ".join(str(c.get("quote", "")).split()).lower())
+        if u in seen: errs.append(f"candidate {i}: duplicate url and quote")   # one work may be cited for several different passages
         seen.add(u)
         fam[c.get("brief")].add("for" if c.get("stance") == "supports" else "against" if c.get("stance") in ("contradicts", "fails_to_support") else "other")
     for b, s in fam.items():
