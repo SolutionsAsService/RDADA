@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SolutionsAsService/RDADA/schemas/candidate.schema.json",
+  "title": "RDADA candidate source",
+  "type": "object",
+  "required": ["brief", "title", "url", "accessed", "kind", "stance", "quote", "summary", "reliability", "review"],
+  "properties": {
+    "brief": {"type": "string"},
+    "records": {"type": "array", "items": {"type": "string"}},
+    "title": {"type": "string", "minLength": 3},
+    "authors": {"type": ["string", "null"]},
+    "year": {"type": ["integer", "null"], "minimum": -3000, "maximum": 2100},
+    "venue": {"type": ["string", "null"]},
+    "url": {"type": "string", "pattern": "^https://"},
+    "doi": {"type": ["string", "null"], "pattern": "^10\\.\\d{4,9}/\\S+$"},
+    "accessed": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "kind": {"enum": ["primary", "secondary", "alternative", "official", "skeptical"]},
+    "discipline": {"type": "string"},
+    "stance": {"enum": ["supports", "fails_to_support", "contradicts", "context"]},
+    "ask_addressed": {"type": "string"},
+    "quote": {"type": "string", "minLength": 8},
+    "summary": {"type": "string", "minLength": 10},
+    "limits": {"type": "string"},
+    "reliability": {"const": "unassessed"},
+    "review": {"type": "object", "properties": {"status": {"const": "unreviewed"}, "by": {"type": "null"}}, "required": ["status"]},
+    "verified": {"type": "object"}
+  }
+}

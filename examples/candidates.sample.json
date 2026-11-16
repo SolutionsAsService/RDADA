@@ -1,0 +1,5 @@
+{"run": "format example only", "generated": "2026-11-16", "candidates": [
+ {"brief": "example", "records": ["example-record"], "title": "FORMAT EXAMPLE, not a real source", "authors": null, "year": null, "venue": null,
+  "url": "https://example.org/format-example", "doi": null, "accessed": "2026-11-16", "kind": "primary", "stance": "context",
+  "quote": "A short verbatim quote from the page goes here.", "summary": "Shows the shape of a candidate; it cites nothing.", "limits": "Placeholder for validation only.",
+  "reliability": "unassessed", "review": {"status": "unreviewed", "by": null}, "verified": {"by": "verifier", "date": "2026-11-16"}}]}

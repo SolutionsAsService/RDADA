@@ -1,0 +1,5 @@
+{"meta": {"note": "Sample from human-history ml/out/briefs.json. Briefs are leads, not evidence."},
+ "briefs": [{"id": "rec:phaistos-disc", "kind": "record", "records": ["phaistos-disc"], "need": 1.38,
+   "reasons": ["only 1 source(s)", "no primary source"], "asks": ["Language, content and place of manufacture"],
+   "wanted_kinds": ["primary", "skeptical"], "queries": ["\"Phaistos Disc\"", "\"Phaistos Disc\" critique OR rebuttal OR reanalysis OR \"alternative explanation\""],
+   "context": {"title": "Phaistos Disc", "place": "Phaistos, Crete"}}]}
