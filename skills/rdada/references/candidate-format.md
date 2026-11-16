@@ -37,3 +37,16 @@ When the brief's `kind` is `thread`, each candidate also carries a `strand` desc
 ```
 
 `carried` is language, writing, religion, idea, technology, crop_or_animal, people, institution or custom. `medium` is migration, conquest, trade, translation, text, teaching, court_or_empire or unknown. `directness`: `documented` (a dated text, inscription or dated aDNA/archaeology shows the transfer), `inferred` (similarity plus plausible contact), `debated` (specialists disagree). Years are CE (negative = BCE). A strand needs a source that says it; a similarity the researcher noticed is not a strand.
+
+## Primary-text candidates
+
+When the brief's `kind` is `primary`, the candidate IS a passage of an ancient text, quoted from an edition or translation you opened. Add a `text` object:
+
+```json
+"text": {"work": "Genesis", "locator": "8:6-12", "language": "Hebrew (quoted in English, JPS)",
+         "edition": "Sefaria API: Miqra according to the Masorah (Hebrew); JPS Tanakh 1985 gender-sensitive (English)",
+         "composition": {"start": -600, "end": -400, "basis": "scholarly consensus for the Priestly and Yahwist layers; cite the source you read in `limits`"},
+         "witness": "Earliest manuscripts: Dead Sea Scrolls fragments (3rd c. BCE - 1st c. CE); Masoretic text (Aleppo Codex, c. 930 CE)"}
+```
+
+Keep three dates apart and never merge them: the **composition** of the work (a range, with its basis), the date of the earliest **witness** (manuscript, inscription, tablet), and the date of the **edition or translation** you quoted. `kind` is `primary`; `stance` says what the passage does for the brief (a text that parallels another text is `context` until the brief's ask is about the relationship). Quote the original wording as the edition prints it (translations are fine, name the translator); never paraphrase inside `quote`.

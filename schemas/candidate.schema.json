@@ -182,6 +182,60 @@
           ]
         }
       }
+    },
+    "text": {
+      "type": "object",
+      "description": "Only for primary-text candidates: where the passage sits in the work and how the work itself is dated.",
+      "required": [
+        "work",
+        "locator",
+        "language",
+        "edition",
+        "composition",
+        "witness"
+      ],
+      "properties": {
+        "work": {
+          "type": "string"
+        },
+        "locator": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "edition": {
+          "type": "string"
+        },
+        "composition": {
+          "type": "object",
+          "required": [
+            "start",
+            "end",
+            "basis"
+          ],
+          "properties": {
+            "start": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "end": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "basis": {
+              "type": "string"
+            }
+          }
+        },
+        "witness": {
+          "type": "string"
+        }
+      }
     }
   }
 }

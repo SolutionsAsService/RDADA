@@ -22,6 +22,13 @@ def check(c, i, errs):
     if c["review"].get("status") != "unreviewed": errs.append(f"{p}: review.status must be 'unreviewed'")
     if c.get("doi") and not re.fullmatch(r"10\.\d{4,9}/\S+", c["doi"]): errs.append(f"{p}: malformed doi")
     if "verified" not in c: errs.append(f"{p}: no verifier marker")
+    tx = c.get("text")
+    if tx is not None:
+        for k in ("work", "locator", "language", "edition", "witness"):
+            if not tx.get(k): errs.append(f"{p}: text missing {k}")
+        comp = tx.get("composition") or {}
+        if not comp.get("basis"): errs.append(f"{p}: text.composition.basis missing (say what the date rests on, or 'editor-conventional')")
+        if comp.get("start") is not None and comp.get("end") is not None and comp["end"] < comp["start"]: errs.append(f"{p}: text.composition end before start")
     st = c.get("strand")
     if st is not None:
         for k in ("from", "to", "carried", "medium"):

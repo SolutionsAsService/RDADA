@@ -14,6 +14,10 @@ You are the **coordinator**. You read briefs, spawn subagents, and manage files.
 
 Research subagents get the web by default. Tell each one to use WebSearch to find pages, WebFetch to read them, and the Playwright browser tools (`browser_navigate`, `browser_snapshot`, `browser_evaluate`) when a page is script-rendered, paywalled to plain fetches, or a PDF viewer. If the Playwright server is missing, load it from `.mcp.json` (`npx -y @playwright/mcp@latest --headless`) and carry on with WebSearch/WebFetch meanwhile. A page that no tool can open is a gap, never a candidate.
 
+## Brief kinds
+
+`topic` and `record`: find scholarly sources. `thread`: what passed from one culture to another (candidates carry a `strand`). `primary`: read the ancient text itself and quote it (candidates carry a `text` object). A primary brief names the works and loci to read; the researcher also finds the scholarly source for each work's dating. Primary briefs pair naturally with thread briefs: the text passage is the evidence, the strand is the claim.
+
 ## Process
 
 1. Load briefs
