@@ -62,6 +62,10 @@ When researchers finish, spawn one verifier per researcher output (parallel), ea
 
 Merge every `.verified.json` into `rdada_runs/<run>/candidates.json` (`{"run":..., "generated":..., "candidates":[...]}`), and every rejected file into `rejected.json`. Run `python3 scripts/validate_candidates.py` if the repo is present; fix only formatting, never content. Do not add, edit or reword a candidate yourself.
 
+### Review queue
+
+After assembling, run `python3 scripts/review_queue.py rdada_runs/<run>`. It writes `review-queue.json` and `review-queue.md`: rejected candidates with reasons, second-hand and abstract-only sources, undated primary passages, one-sided debated strands, and hosts that did not open. Mention its counts in the report; never hide a rejection.
+
 ### 6. Deliver
 
 Write `report.md`: per brief, how many candidates survived, what stance they take, and the gaps (briefs with no candidates, or with support only and no sceptical material, are flagged "one-sided"). Send `report.md` and `candidates.json` to the user if you can; otherwise give absolute paths. Summarise in 3-5 sentences, saying plainly that candidates are unreviewed leads. Do not say a source "proves" anything.

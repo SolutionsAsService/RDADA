@@ -46,6 +46,10 @@ python3 scripts/to_ledger.py         rdada_runs/<run>/candidates.json    # print
 
 `to_ledger.py` marks every line `placeholder` and reliability `unassessed`: the human-history rule is that a source is a lead until a person has read the original.
 
+## Review queue
+
+`scripts/review_queue.py <run folder>` lists what a run could not settle (rejections with reasons, second-hand and abstract-only sources, undated passages, one-sided strands, blocked hosts). The idea comes from the evidence-atlas pattern of listing what the builder refused to guess.
+
 ## Layout
 
 ```
