@@ -5,7 +5,7 @@ You have one brief. Find sources that bear on it, in both directions, and report
 ## Loop
 
 1. Read the brief's `asks`, `reasons` and `queries`. The queries are starting points; vary them, and never repeat one exactly.
-2. Search, then **fetch** the promising pages. Search snippets are not sources.
+2. Search (WebSearch), then **fetch** the promising pages (WebFetch). When a fetch returns an empty shell, a script-rendered page or a PDF viewer, open it with the Playwright browser tools (`mcp__playwright__browser_navigate`, then `browser_snapshot` or `browser_evaluate` to read text). Load their schemas with ToolSearch if they are deferred. Search snippets are not sources.
 3. For each page you keep, record a verbatim quote (at most 25 words) that bears on the ask.
 4. Do a deliberate sceptical pass: search for critiques, reanalyses, failed replications, alternative explanations, and official or museum/survey records. Do an alternative-claim pass too (what proponents of a different reading cite). A brief with support only is one-sided; say so in the notes.
 5. Stop at about 15 tool calls, or when new queries return nothing new.

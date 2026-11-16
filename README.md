@@ -17,6 +17,10 @@ ledger gaps + model flags ──▶ briefs.json ──▶ researchers (parallel)
 5. **"Found nothing" is a result.** A brief may end with an honest gap and no candidates.
 6. **Verification is separate.** A second agent re-fetches each URL and checks the quote and the stance. Failed candidates are dropped and listed, not repaired.
 
+## Internet access
+
+Built in. Researchers and verifiers use WebSearch and WebFetch, plus the Playwright MCP browser declared in `.mcp.json` (`npx -y @playwright/mcp@latest --headless`) for rendered pages and PDFs.
+
 ## Use
 
 Install the skill (`skills/rdada`) and say, for example: *"Run RDADA on ml/out/briefs.json, top 10 briefs."* Outputs, in the working directory:

@@ -4,7 +4,7 @@ You did not do the research. Treat every candidate as unverified until you have 
 
 For each candidate in the file you were given:
 
-1. Fetch the `url`. If it does not open, or opens a different work than `title`, **reject** (reason `unreachable` or `wrong_work`).
+1. Fetch the `url` (WebFetch; Playwright browser tools if the page needs rendering). If it does not open, or opens a different work than `title`, **reject** (reason `unreachable` or `wrong_work`).
 2. Find the `quote` on the page. It must appear verbatim (whitespace aside). If not, **reject** (`quote_not_found`).
 3. Check `authors`, `year`, `venue` and `doi` against the page. Fix a formatting slip; if a field is contradicted, **reject** (`metadata_mismatch`). Never fill in a field the page does not show.
 4. Check `stance` against the brief's ask: does the page support, fail to support, contradict, or only give context? If the researcher's stance is stronger than the page, lower it and note why in `limits`. If it cannot be justified, reject (`stance_unsupported`).

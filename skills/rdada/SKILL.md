@@ -1,6 +1,6 @@
 ---
 name: rdada
-description: Use when asked to find new sources for an evidence ledger or map (human-history style), to follow research briefs, or to test a claim by looking for supporting AND sceptical sources. Takes briefs (JSON or plain text), runs parallel researcher subagents, has a verifier subagent re-fetch every candidate, and returns verified, unreviewed candidate sources plus honest gaps. Needs a subagent tool (Agent or Task) and web access; without them, research one brief directly following references/researcher.md.
+description: Use when asked to find new sources for an evidence ledger or map (human-history style), to follow research briefs, or to test a claim by looking for supporting AND sceptical sources. Takes briefs (JSON or plain text), runs parallel researcher subagents, has a verifier subagent re-fetch every candidate, and returns verified, unreviewed candidate sources plus honest gaps. Needs a subagent tool (Agent or Task). Internet access is built in: WebSearch and WebFetch, and the Playwright MCP browser (mcp__playwright__*, configured in this repo's .mcp.json) for pages that need rendering. Without a subagent tool, research one brief directly following references/researcher.md.
 metadata:
   author: SolutionsAsService
   repository: https://github.com/SolutionsAsService/RDADA
@@ -9,6 +9,10 @@ metadata:
 # RDADA coordinator
 
 You are the **coordinator**. You read briefs, spawn subagents, and manage files. You do not search the web and you do not judge sources yourself, and you do not read `references/researcher.md` or `references/verifier.md` (the subagents do). You never edit the ledger.
+
+## Internet access
+
+Research subagents get the web by default. Tell each one to use WebSearch to find pages, WebFetch to read them, and the Playwright browser tools (`browser_navigate`, `browser_snapshot`, `browser_evaluate`) when a page is script-rendered, paywalled to plain fetches, or a PDF viewer. If the Playwright server is missing, load it from `.mcp.json` (`npx -y @playwright/mcp@latest --headless`) and carry on with WebSearch/WebFetch meanwhile. A page that no tool can open is a gap, never a candidate.
 
 ## Process
 
