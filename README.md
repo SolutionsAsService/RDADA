@@ -1,4 +1,4 @@
-# DDRVA — Deep Directed Research Verifiable Agent
+# DDVRA — Deep Directed Verifiable Research Agent
 
 A research agent skill for evidence ledgers. It takes **briefs** (what a new source would need to show, and why it matters), sends parallel researchers to the open web, has an independent verifier re-fetch every claim, and returns **candidate sources** for a human to review. It builds on the coordinator pattern of [deep-research](https://github.com/SolutionsAsService/deep-research).
 
